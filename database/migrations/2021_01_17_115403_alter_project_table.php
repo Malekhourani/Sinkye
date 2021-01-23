@@ -15,10 +15,10 @@ class AlterProjectTable extends Migration
     {
         Schema::table('project', function (Blueprint $table) {
             $table->unsignedBigInteger('group_id');
-            $table->foreign('group_id')->references('group_id')->on('group');
+            $table->foreign('group_id')->references('id')->on('group');
 
             $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('company_id')->on('company');
+            $table->foreign('company_id')->references('id')->on('company');
         });
     }
 

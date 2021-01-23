@@ -14,7 +14,7 @@ class CreateMissionTable extends Migration
     public function up()
     {
         Schema::create('mission', function (Blueprint $table) {
-            $table->id('mission_id');
+            $table->id('id');
             $table->string('name');
             $table->string('description');
             $table->date('deadline');

@@ -14,7 +14,12 @@ class Message extends Model
     public int $message_id;
     public string $content;
 
+    protected $primaryKey = 'id';
     protected $table = 'message';
+    public $timestamps = false;
+    protected $fillable = [
+        'content'
+    ];
     
     public function employee()
     {

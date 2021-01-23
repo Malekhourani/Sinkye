@@ -15,11 +15,11 @@ class AlterEmployeeTypePermissionsTable extends Migration
     {
         Schema::table('employee_type_permissions', function (Blueprint $table) {
             $table->foreign('employee_type_id')
-                  ->references('employee_type_id')
+                  ->references('id')
                   ->on('employee_type');
 
             $table->foreign('permission_id')
-                  ->references('permission_id')
+                  ->references('id')
                   ->on('permission');
         });
     }

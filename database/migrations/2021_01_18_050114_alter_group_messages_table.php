@@ -15,11 +15,11 @@ class AlterGroupMessagesTable extends Migration
     {
         Schema::table('group_messages', function (Blueprint $table) {
             $table->foreign('message_id')
-                  ->references('message_id')
+                  ->references('id')
                   ->on('message');
 
             $table->foreign('group_id')
-                  ->references('group_id')
+                  ->references('id')
                   ->on('group');
         });
     }

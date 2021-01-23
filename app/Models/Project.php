@@ -13,7 +13,12 @@ class Project extends Model
     public string $name;
     public string $description;
 
+    protected $primaryKey = 'id';
     protected $table = 'project';
+    public $timestamps = false;
+    protected $fillable = [
+        'name', 'description'
+    ];
 
     public function group()
     {

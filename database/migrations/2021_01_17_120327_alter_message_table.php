@@ -16,7 +16,7 @@ class AlterMessageTable extends Migration
         Schema::table('message', function (Blueprint $table) {
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')
-                  ->references('employee_id')
+                  ->references('id')
                   ->on('employee');
         });
     }

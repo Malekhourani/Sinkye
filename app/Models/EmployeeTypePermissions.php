@@ -13,5 +13,6 @@ class EmployeeTypePermissions extends Pivot
     public int $employee_id;
     public int $permission_id;
 
+    protected $primaryKey = 'id';
     protected $table = 'employee_type_permissions';
 }

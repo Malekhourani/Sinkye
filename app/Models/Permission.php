@@ -13,7 +13,12 @@ class Permission extends Model
     public string $name;
     public string $description;
 
+    protected $primaryKey = 'id';
     protected $table = 'permission';
+    public $timestamps = false;
+    protected $fillable = [
+        'name', 'description'
+    ];
 
     public function employeeTypes()
     {

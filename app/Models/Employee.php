@@ -12,7 +12,13 @@ class Employee extends Model
     public int $employee_id;
     public string $name;
 
+    protected $primaryKey = 'id';
     protected $table = 'employee';
+    public $timestamps = false;
+    protected $fillable = [
+        'employee_id', 'name', 'employee_type'
+    ];
+    
 
     public function messages()
     {

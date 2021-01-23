@@ -16,7 +16,7 @@ class AlterAttachmentTable extends Migration
         Schema::table('attachment', function (Blueprint $table) {
             $table->unsignedBigInteger('message_id');
             $table->foreign('message_id')
-                  ->references('message_id')
+                  ->references('id')
                   ->on('message');
         });
     }

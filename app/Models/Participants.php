@@ -12,5 +12,6 @@ class Participants extends Pivot
     public int $employee_id;
     public int $group_id;
 
+    protected $primaryKey = 'id';
     protected $table = 'participants';
 }

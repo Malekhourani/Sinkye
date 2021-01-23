@@ -13,7 +13,12 @@ class Attachment extends Model
     public string $name;
     public string $path;
 
+    public $timestamps = false;
     protected $table = 'attachment';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'name', 'path'
+    ];
     
     public function messages()
     {

@@ -13,7 +13,12 @@ class GroupType extends Model
     public string $name;
     public string $description;
 
+    protected $primaryKey = 'id';
     protected $table = 'group_type';
+    public $timestamps = false;
+    protected $fillable = [
+        'name', 'description'
+    ];
 
     public function group()
     {

@@ -13,5 +13,6 @@ class GroupMessages extends Pivot
     public int $group_id;
     public int $message_id;
 
+    protected $primaryKey = 'id';
     protected $table = 'group_messages';
 }

@@ -16,7 +16,7 @@ class AlterGroupTable extends Migration
         Schema::table('group', function (Blueprint $table) {
             //create a foreign key that references to group_type table
             $table->unsignedBigInteger('group_type_id');
-            $table->foreign('group_type_id')->references('group_type_id')->on('group_type');
+            $table->foreign('group_type_id')->references('id')->on('group_type');
         });
     }
 

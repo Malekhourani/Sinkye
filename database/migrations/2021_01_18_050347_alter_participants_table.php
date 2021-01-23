@@ -15,11 +15,11 @@ class AlterParticipantsTable extends Migration
     {
         Schema::table('participants', function (Blueprint $table) {
             $table->foreign('employee_id')
-                  ->references('employee_id')
+                  ->references('id')
                   ->on('employee');
 
             $table->foreign('group_id')
-                  ->references('group_id')
+                  ->references('id')
                   ->on('group');
         });
     }

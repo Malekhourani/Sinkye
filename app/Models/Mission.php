@@ -15,7 +15,12 @@ class Mission extends Model
     public string $description;
     public DateTime $deadline;
 
+    protected $primaryKey = 'id';
     protected $table = 'mission';
+    public $timestamps = false;
+    protected $fillable = [
+        'deadline', 'description'
+    ];
     
     public function group()
     {

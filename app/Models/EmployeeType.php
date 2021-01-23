@@ -12,8 +12,15 @@ class EmployeeType extends Model
     public int $employee_type_id;
     public string $name;
     public string $description;
-
+    
+    
     protected $table = 'employee_type';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+    protected $fillable = [
+        'name', 'description'
+    ];
+    
 
     public function employees()
     {

@@ -14,7 +14,7 @@ class CreateEmployeeTable extends Migration
     public function up()
     {
         Schema::create('employee', function (Blueprint $table) {
-            $table->id('employee_id');
+            $table->id('id');
             $table->string('name');
         });
     }

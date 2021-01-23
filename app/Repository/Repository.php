@@ -4,7 +4,6 @@
 namespace App\Repository;
 
 use Illuminate\Http\Request;
-use App\Models\Company;
 
 class Repository implements IRepository
 {

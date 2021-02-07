@@ -1,46 +1,59 @@
-<?php 
+<?php
 
 
 namespace App\Repository;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class Repository implements IRepository
 {
-    private $type;
+    protected Model $model;
 
-    public function __construct($type) {
-        $this->type = $type;
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
     }
 
     public function all()
     {
-        return $this->type::all();
+        return $this->model->all();
     }
 
-    public function store(Request $request, array $rules)
+    public function store(Request $request, array $rules) : ?Model
     {
-        $request->validate($rules);
-
-        $obj = $this->type::create((array) $request->input());
-
-        return $obj;
+        return $this->queryBuilder()
+            ->create((array) $request->input());
     }
 
-    public function update(Request $request, int $id)
+    public function update(Request $request, int $id) : ?Model
     {
-        $obj = $this->type::where('id', $id)
-                    ->update((array)$request->input());
-        return $obj;
+        $object = $this->show($id);
+
+        if ($object == null) return null;
+
+        $updatedColumn = $this->queryBuilder()
+                              ->update((array) $request->input());
+
+        if ($updatedColumn == 0) return null;
+
+        return $this->show($id);
     }
 
-    public function destroy(int $id)
+    public function destroy(int $id) : int
     {
-        $this->type::destroy($id);
+        return $this->queryBuilder()->delete();
     }
 
-    public function read(int $id)
+    public function show(int $id, array $columns = ['*']) : ?Model
     {
-        return $this->type::find($id);
+        return $this->queryBuilder()
+                    ->find($id, $columns);
+    }
+
+    protected function queryBuilder(): Builder
+    {
+        return $this->model->newQuery();
     }
 }

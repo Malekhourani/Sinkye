@@ -19,10 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(IRepository::class, function(){
-            $type = StringHelper::getModelName(request()->url());
-            return new Repository($type);
-        });
+        
     }
 
     /**
